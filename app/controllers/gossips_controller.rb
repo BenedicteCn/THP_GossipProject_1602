@@ -24,7 +24,7 @@ class GossipsController < ApplicationController
   def update
     @gossip = Gossip.find(params[:id])
     gossip_params = params.require(:gossip).permit(:title, :content)
-    @gossip.update(post_params)
+    @gossip.update(gossip_params)
     redirect_to root_path
   end
 
