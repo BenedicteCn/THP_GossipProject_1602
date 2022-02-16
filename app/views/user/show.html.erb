@@ -1,0 +1,8 @@
+    <h2>Et voici plus d'infos sur l'auteur du potin: </h2>
+
+    <p><strong>Son prénom :</strong> <%= User.find(params['id']).first_name%></p>
+    <p><strong>Son nom : </strong><%= User.find(params['id']).last_name%></p>
+    <p><strong>Sa description : </strong><%= User.find(params['id']).description%></p>
+    <p><strong>Son âge :</strong> <%= User.find(params['id']).age%></p>
+    <p><strong>Son email :</strong> <%= User.find(params['id']).email%></p>
+    <p><strong>Sa ville :</strong> <%= City.find(params['id']).name%></p>

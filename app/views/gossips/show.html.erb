@@ -1,0 +1,15 @@
+<html>
+  <body>
+  <div class="card-body">
+    <h1>Voici le contenu du potin n°<%=params['id']%> : </h1>
+    <p>
+      <p><strong>Le titre :</strong> <%= Gossip.find(params['id']).title%></p>
+      <p><strong>Le contenu :</strong> <%= Gossip.find(params['id']).content%></p>
+      <p><strong>L'auteur :</strong> <%= User.find(params['id']).first_name%> <%= User.find(params['id']).last_name%></p>
+      <p><strong>Sa ville : </strong> <%= City.find(params['id']).name%></p>
+
+    <a href='/'>Lien pour revenir à la page d'accueil</a>
+  </div>
+
+  </body>
+</html>

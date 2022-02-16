@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+      <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  </head>
+  <body>
+      <div class="col-md-10 p-lg-1 mx-auto my-1">
+      <div class="container-fluid">
+
+        <center><h1 class="display-4 fw-normal" style="color: blue;"><strong>Bienvenue sur le site du Gossip Project !</strong></h1>
+        <h3 class="display- fw-normal" style="color: blue;">Le Gossip Project vous permet de créer un potin de manière anonyme ou non, et de consulter ceux de vos amis (ou ennemis!)</h3>
+
+        <img src="https://fr.web.img5.acsta.net/r_654_368/newsv7/17/01/10/12/00/515050.jpg"></center>
+    </div></div>
+
+   <div class="card-body"><center>
+    <h5 class="card-title">Tu as un potin à nous confier ?</h5>
+    <p class="card-text">Clique sur le bouton en dessous pour écrire ton potin !</p>
+    <a href="<%= new_gossip_path %>" class="btn btn-primary">Créer mon potin</a></center>
+
+    <h5 class="card-title"> </h5></div>
+
+    <div class="card-body">
+    <h4 class="card-title"> Retrouve les derniers potins ci-dessous : </h4>
+  <div class="card"> <div class="card-body">
+  <% index = 0 %>
+   <% Gossip.all.each do |gossip|%>
+   <p><% index +=1 %>
+      <strong><%= gossip.title %><br/></strong>
+      <footer class="blockquote-footer"><%= User.all.find_by(id: gossip.user_id).first_name%>, le <cite title="Source Creation"><%= gossip.created_at%></cite></footer>
+      <a href="<%= gossip_path(gossip.id) %>">Clique ici pour lire le contenu du potin </a>
+      <a href="<%= user_path(user.id) %>">Clique ici pour en savoir plus sur l'auteur </a>
+      <a href="<%= city_path(city.id) %>">Clique ici pour découvrir la ville de l'auteur </a>
+
+    </p>
+    <%end%></div>
+    </div>
+
+
+    </div>
+
+  </body>
+</html>
