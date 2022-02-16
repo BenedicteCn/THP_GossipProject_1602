@@ -9,7 +9,7 @@ class GossipsController < ApplicationController
       if @gossip.save
         redirect_to root_path, notice: "Nouveau potin bien créé !"
       else
-        render file: './app/views/layouts/gossips/new.html.erb'
+        render file: './app/views/gossips/new.html.erb'
       end
   end
 

@@ -10,11 +10,12 @@
 require 'faker'
 
 #destroy all data from class
-Affiliation.destroy_all
-Gossip.destroy_all
-User.destroy_all
-City.destroy_all
-Tag.destroy_all
+#Affiliation.destroy_all
+#Gossip.destroy_all
+#User.destroy_all
+#City.destroy_all
+#Tag.destroy_all
+
 #Création de 10 villes
 20.times do
   city = City.create!(
@@ -67,4 +68,12 @@ end
     gossip_id: Gossip.all.sample.id,
     tag_id: Tag.all.sample.id
   );
+end
+
+5.times do
+  comment = Comment.create!(
+    content: Faker::Quotes::Shakespeare.hamlet_quote,
+    user_id: User.all.sample.id,
+    gossip_id: Gossip.all.sample.id,
+  )
 end

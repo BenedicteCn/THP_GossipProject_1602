@@ -8,9 +8,23 @@
       <p><strong>L'auteur :</strong> <%= User.find(params['id']).first_name%> <%= User.find(params['id']).last_name%></p>
       <p><strong>Sa ville : </strong> <%= City.find(params['id']).name%></p>
 
-    <a href="<%= gossip_path(@gossip.id) %>" class="btn btn-danger" data-method="DELETE"> Supprimer le potin </a>
+    <a href="<%= gossip_path(@gossip) %>" class="btn btn-danger" data-method="DELETE"> Supprimer le potin </a>
     <a href="<%= edit_gossip_path(@gossip.id) %>" class="btn btn-primary"> Editer le potin </a>
-    <a href='/' class="btn btn-secondary">Revenir à la page d'accueil</a>
+    <a href="<%= new_comment_path %>" class="btn btn-outline-primary">Ecrire un commentaire</a>
+
+  </div>
+
+  <div class="card-body">
+
+
+  <h2>Retrouve ici les derniers commentaires concernant ce potin :</h2>
+
+  <% Comment.all.each  do |comment| %>
+    <p><%= comment.content %></p>
+    <p> <footer class="blockquote-footer">Auteur : Anonyme </footer> </p>
+  <%end%>
+
+  <p><a href='/' class="btn btn-secondary">Revenir à la page d'accueil</a></p>
   </div>
 
   </body>
