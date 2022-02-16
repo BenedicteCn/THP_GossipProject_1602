@@ -34,9 +34,10 @@
    <p><% index +=1 %>
       <strong><%= gossip.title %><br/></strong>
       <footer class="blockquote-footer"><%= User.all.find_by(id: gossip.user_id).first_name%>, le <cite title="Source Creation"><%= gossip.created_at%></cite></footer>
-      <a href="<%= gossip_path(gossip.id) %>">Clique ici pour lire le contenu du potin </a>
-      <a href="<%= user_path(user.id) %>">Clique ici pour en savoir plus sur l'auteur </a>
-      <a href="<%= city_path(city.id) %>">Clique ici pour découvrir la ville de l'auteur </a>
+      Clique ici pour :
+      <a href="<%= gossip_path(gossip.id) %>">lire le contenu du potin </a> ||
+      <a href="<%= user_path(gossip.id) %>">en savoir plus sur l'auteur </a> ||
+      <a href="<%= city_path(gossip.id) %>">découvrir la ville de l'auteur </a>
 
     </p>
     <%end%></div>
