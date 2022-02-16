@@ -29,8 +29,19 @@ class GossipsController < ApplicationController
   end
 
   def destroy
+    puts "hello ça marche"
+    puts params[:id]
+
     @gossip = Gossip.find(params[:id])
-    @gossip.destroy
-    redirect_to root_path
+
+    puts @gossip
+
+      if @gossip.destroy
+        puts "ici"
+      else
+        puts "faux"
+      end
+    #@gossip.destroy
+    #redirect_to root_path, :notice => "Le potin a bien été supprimé"
   end
 end

@@ -13,11 +13,19 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @comment = Comment.find(params[:id])
   end
 
   def update
+    @comment = Comment.find(params[:id])
+    comment_params = params.require(:comment).permit(:content)
+    @comment.update(comment_params)
+    redirect_to root_path
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to root_path, :notice => "Le commentaire a bien été supprimé"
   end
 end
