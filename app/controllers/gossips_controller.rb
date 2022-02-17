@@ -6,6 +6,7 @@ class GossipsController < ApplicationController
 
   def create
     @gossip = Gossip.new(title: params[:title],content: params[:content], user_id: User.find_by(first_name: 'anonymous').id)
+    @gossip.user = User.find_by(id: session[:user_id])
       if @gossip.save
         redirect_to root_path, notice: "Nouveau potin bien créé !"
       else
@@ -42,6 +43,6 @@ class GossipsController < ApplicationController
         puts "faux"
       end
     #@gossip.destroy
-    #redirect_to root_path, :notice => "Le potin a bien été supprimé"
+    redirect_to root_path, :notice => "Le potin a bien été supprimé"
   end
 end

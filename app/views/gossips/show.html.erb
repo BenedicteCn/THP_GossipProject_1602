@@ -8,9 +8,11 @@
       <p><strong>L'auteur :</strong> <%= User.find(params['id']).first_name%> <%= User.find(params['id']).last_name%></p>
       <p><strong>Sa ville : </strong> <%= City.find(params['id']).name%></p>
 
-    <a href="<%= gossip_path(@gossip.id) %>" class="btn btn-danger" date-confirm="Êtes vous sûr de vouloir supprimer?" data-method="DELETE"> Supprimer le potin </a>
+    <div class="d-flex">
+    <%= button_to "Supprimer le potin", gossip_path(@gossip.id), class: 'btn btn-danger', method: :delete%>
     <a href="<%= edit_gossip_path(@gossip.id) %>" class="btn btn-primary"> Editer le potin </a>
     <a href="<%= new_gossip_comment_path(@gossip.id) %>" class="btn btn-outline-primary">Ecrire un commentaire</a>
+    </div>
 
   </div>
 

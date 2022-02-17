@@ -15,7 +15,7 @@
       <div class="container-fluid">
 
         <center>
-          <h2 class="display- fw-normal" style="color: blue;">Bienvenue <%= params['first_name']%> ! Ici c'est notre super site de potins, il est chouette, non ?</h2></center>
+          <h2 class="display- fw-normal" style="color: blue;">Bienvenue <%= User.find_by(id: session[:user_id]).first_name %> <%= params['first_name']%> ! Ici c'est notre super site de potins, il est chouette, non ?</h2></center>
 
     </div></div>
 </body>
