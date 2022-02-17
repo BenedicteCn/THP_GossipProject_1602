@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'session/new'
+  get 'session/create'
+  get 'session/destroy'
   root to: 'pages#home'
 
   get '/team', to: 'pages#team'
@@ -7,12 +10,14 @@ Rails.application.routes.draw do
 
   get '/welcome/:first_name', to: 'pages#welcome'
 
-  resources :gossips
+  resources :gossips do
+    resources :comment
+  end
 
-  resources :user, only: [:show]
+  resources :user
 
   resources :city, only: [:show]
 
-  resources :comments
+  resources :sessions, only: [:new, :create, :destroy]
 
 end

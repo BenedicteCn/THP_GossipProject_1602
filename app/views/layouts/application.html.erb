@@ -28,11 +28,11 @@
       </ul>
       <ul class="nav justify-content-end">
         <li class="nav-item dropdown mr-4">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Créer un compte / Se connecter
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Connexion
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/users/new">Créer un compte</a>
+            <a class="dropdown-item" href="/user/new">Créer un compte</a>
             <a class="dropdown-item" href="/sessions/new">Se connecter</a>
           </div>
         </li>
@@ -40,6 +40,7 @@
     </div>
     </nav>
   </head>
+
 
   <body>
     <%= yield %>
@@ -69,7 +70,7 @@
     <div class="col-md-4 d-flex align-items-center">
       <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
       </a>
-      <span class="text-muted">© 2022, The Gossip Project - xoxo, Béné the Queen</span>
+      <span class="text-muted">© 2022, The Gossip Project - xoxo, Béné the Queen </span>
     </div>
 </body>
 </html>

@@ -1,4 +1,5 @@
-class CommentsController < ApplicationController
+class CommentController < ApplicationController
+
   def new
     @comment = Comment.new
   end
@@ -14,6 +15,7 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
+    @gossip = Gossip.find(params[:gossip_id])
   end
 
   def update
@@ -24,7 +26,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
+    @comment = Comment.find(params[:gossip_id])
     @comment.destroy
     redirect_to root_path, :notice => "Le commentaire a bien été supprimé"
   end

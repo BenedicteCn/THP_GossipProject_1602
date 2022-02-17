@@ -32,8 +32,9 @@ end
     description: Faker::Lorem.sentence,
     email: Faker::Internet.email,
     age: rand(10..99),
-    city_id: City.all.sample.id
-  );
+    city_id: City.all.sample.id,
+    password: "ABCDEF"
+  )
 end
 
 
@@ -43,7 +44,8 @@ user = User.create!(
   description: "anonymous",
   email: "anonymous",
   age: "anonymous",
-  city_id: City.all.sample.id)
+  city_id: City.all.sample.id,
+  password: "ABCDEF")
 
 #Création de 10 tags
 20.times do

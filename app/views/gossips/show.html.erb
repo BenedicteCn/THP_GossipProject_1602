@@ -10,7 +10,7 @@
 
     <a href="<%= gossip_path(@gossip.id) %>" class="btn btn-danger" date-confirm="Êtes vous sûr de vouloir supprimer?" data-method="DELETE"> Supprimer le potin </a>
     <a href="<%= edit_gossip_path(@gossip.id) %>" class="btn btn-primary"> Editer le potin </a>
-    <a href="<%= new_comment_path %>" class="btn btn-outline-primary">Ecrire un commentaire</a>
+    <a href="<%= new_gossip_comment_path(@gossip.id) %>" class="btn btn-outline-primary">Ecrire un commentaire</a>
 
   </div>
 
@@ -24,9 +24,12 @@
       <div class="card">
       <p><%= comment.content %></p>
       <p> <footer class="blockquote-footer">Auteur : Anonyme </footer> </p>
-      <a href="<%= comment_path %>" class="btn btn-outline-danger" date-confirm="Êtes vous sûr de vouloir supprimer?" data-method="DELETE"> Supprimer le commentaire </a>
-      <a href="<%= edit_comment_path %>" class="btn btn-outline-primary"> Editer le commentaire </a>
+    <div class="d-flex">
+      <%= button_to "Supprime le commentaire", gossip_comment_path(@gossip.id), class: 'btn btn-outline-danger ml-5', method: :delete%>
+      <%= link_to "Edite le commentaire", edit_gossip_comment_path(@gossip.id), class: "btn btn-outline-primary" %>
+    </div>
     <%end%>
+
   </div>
 
   <p><a href='/' class="btn btn-secondary">Revenir à la page d'accueil</a></p>

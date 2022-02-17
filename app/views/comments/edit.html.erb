@@ -2,7 +2,7 @@
 	<div class="card mt-5 ml-5 mr-5" style="height:350px">
 		<h5 class="card-title ml-5 pt-5 mb-2">Edite le commentaire</h5>
 	  <div class="card-body">
-		<%= form_for @comment do |comment| %>
+		<%= form_for [@gossip,@comment] do |comment| %>
 	<div class=" form-group">
 	<label class="card-title">Contenu </label>
 	<%= comment.text_area :content, class: 'form-control' %>
